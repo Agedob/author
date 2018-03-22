@@ -1,0 +1,15 @@
+<a  [routerLink]="['/alpha']">Home</a>
+<a  [routerLink]="['/writequote/' + me['_id']]">Add a quote</a>
+<p>quotes from {{me['name']}}:</p>
+<table>
+  <tr>
+    <th>Quotes</th>
+    <th>Vote</th>
+    <th>Action avalable</th>
+  </tr>
+  <tr *ngFor= "let x of list" id="{{me['_id']}}">
+    <td>{{x.cont}}</td>
+    <td>{{x.vote}}</td>
+    <td><button (click)="incquotevote( x['_id'], 1 )">/\</button>||||<button (click)="incquotevote( x['_id'], -1 )">\/</button>||||<button (click)="destroyquote(x['_id'])">delete</button></td>
+  </tr>
+</table>

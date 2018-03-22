@@ -1,0 +1,16 @@
+<a [routerLink]="['/alpha']">Home</a>
+<p>write a quote for {{me['name']}}:</p>
+<form (submit)="onsubmit()">
+  <label for="name">Name: 
+    <input 
+    name="name" 
+    type="text" 
+    [(ngModel)]="newquote['desc']" 
+    placeholder="Quote from {{me['name']}}" 
+    required 
+    minlength=3
+    #name="ngModel"> {{ newquote['desc'] | json }}</label>
+    <br>
+    <input *ngIf="name.valid" type="submit">
+</form>
+<button  [routerLink]="['/alpha']">Cancel</button>

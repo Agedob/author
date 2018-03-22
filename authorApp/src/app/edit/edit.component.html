@@ -1,0 +1,17 @@
+<a  [routerLink]="['/alpha']">Home</a>
+<p>Edit this author</p>
+  <form (submit)="edit(me['_id'])">
+    <label for="name">Name: 
+      <input 
+      name="name" 
+      type="text" 
+      value="{{me['name']}}"
+      [(ngModel)]="newauthor['name']" 
+      placeholder="Leslie Jones" 
+      required 
+      minlength=3
+      #name="ngModel"> {{ newauthor['name'] | json }}</label>
+      <h3 *ngIf="name.valid"> 
+          <input type="submit"></h3>
+  </form>
+  <button  [routerLink]="['/alpha']">Cancel</button>
